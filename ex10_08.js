@@ -4,8 +4,8 @@ var velik3, wheel5, wheel6
 
 //sprite animation
 var currentTile = 0;
-const tileHoriz = 6;
-const tilesVert = 2 ;
+const tileHoriz = 12;
+const tilesVert = 1 ;
 
 const spritemap = new THREE.TextureLoader().load('textures/sprite.png')
 spritemap.magFilter = THREE.NearestFilter
@@ -194,8 +194,8 @@ landTexture.wrapS = THREE.RepeatWrapping;
 landTexture.wrapT = THREE.RepeatWrapping;
 landTexture.repeat.set( 70, 70 );
 
-var landGeometry = new THREE.BoxGeometry(98, 0.1, 135)
-var landMaterial = new THREE.MeshPhongMaterial({map: landTexture})
+var landGeometry = new THREE.BoxGeometry(1200, 0.1, 1200)
+var landMaterial = new THREE.MeshBasicMaterial({map: landTexture})
 var land = new THREE.Mesh(landGeometry, landMaterial)
 land.position.y = -2;
 
@@ -984,14 +984,14 @@ var maxDisplayTime = 0;
 var elapsedTime = 0
 
 function loop(playIndeces, totalDuration) {
-  maxDisplayTime = totalDuration / playIndeces.length
+  maxDisplayTime = totalDuration / (playIndeces.length * 3)
 }
 
 function update(delta) {
   elapsedTime += delta
 
 if (maxDisplayTime > 0 && elapsedTime >= maxDisplayTime ) {
-  if(currentTile == 5) currentTile = 0
+  if(currentTile == 11) currentTile = 0
   elapsedTime = 0
   tileArrayIndex = (tileArrayIndex + 1) % playIndeces.length
   currentTile += 1
@@ -1072,7 +1072,7 @@ function AddCamera(X,Y,Z)
 camera1 = new THREE.PerspectiveCamera( 400, window.innerWidth / window.innerHeight, 1, 10000 );
 camera1.position.set(X,Y,Z);
 controls = new THREE.TrackballControls( camera1, container );
-controls.rotateSpeed = 0; 
+controls.rotateSpeed = 1.25; 
 controls.noZoom = false; 
 controls.zoomSpeed = 1.2; 
 controls.staticMoving = true;

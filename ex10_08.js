@@ -1,7 +1,5 @@
 var velik3, wheel5, wheel6
 
-
-
 //sprite animation
 var currentTile = 0;
 const tileHoriz = 12;
@@ -195,7 +193,7 @@ landTexture.wrapT = THREE.RepeatWrapping;
 landTexture.repeat.set( 70, 70 );
 
 var landGeometry = new THREE.BoxGeometry(1200, 0.1, 1200)
-var landMaterial = new THREE.MeshBasicMaterial({map: landTexture})
+var landMaterial = new THREE.MeshPhongMaterial({map: landTexture})
 var land = new THREE.Mesh(landGeometry, landMaterial)
 land.position.y = -2;
 
@@ -1062,6 +1060,14 @@ function render()
 
   hoverPieces()
 
+  //кнопки
+  document.getElementById('lightOn').onclick = function(){light.intensity = 0.5}
+  document.getElementById('lightOff').onclick = function(){light.intensity = 0.1}
+
+  document.getElementById('lightForward').onclick = function(){light.position.z += 10}
+  document.getElementById('lightBack').onclick = function(){light.position.z -= 10}
+  document.getElementById('lightLeft').onclick = function(){light.position.x -= 10}
+  document.getElementById('lightRight').onclick = function(){light.position.x += 10}
   
 controls.update()
 renderer.render(scene, camera);
@@ -1119,5 +1125,10 @@ window.addEventListener('keydown', function(event) {
   }
 
 });
+
+//кнопки
+
+
+
 
 

@@ -1,0 +1,26 @@
+.btnControl {
+    background-color: rgba(228, 139, 56, 1);
+    border-radius: 15px;
+    font-size: 24px;
+    padding: 0 5px 0 5px;
+    transition: .2s;
+    cursor: pointer;
+    border-color: rgb(182, 102, 28);
+}
+
+.btnOffOn {
+    background-color: rgba(228, 139, 56, 1);
+    border-radius: 15px;
+    padding: 0 5px 0 5px;
+    transition: .2s;
+    cursor: pointer;
+    border-color: rgb(182, 102, 28);
+}
+
+.btnControl:hover {
+    opacity: 0.8;
+}
+
+.btnOffOn:hover {
+    opacity: 0.8;
+}
